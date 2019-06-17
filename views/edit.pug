@@ -1,0 +1,30 @@
+html
+    head
+        style
+            include ../style.css
+        title= title
+    body
+        h1 hello world
+        form(action='/edit' method='POST')
+            div
+                label(for=username) username
+                input(id='username' name='username')
+                placeholder message.username
+            div
+                label(for=name) name
+                input(id='name' name='name')
+            div
+                label(for=email) email
+                input(id='email' name='email')
+            div
+                label(for=age) age
+                input(id='age' name='age')
+            div
+                input(type='submit') save
+
+        //div.container
+        //    div.userInfo
+        //        div= message.username
+        //        div= message.name
+        //        div= message.email
+        //        div= message.age

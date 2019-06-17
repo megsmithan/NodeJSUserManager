@@ -1,0 +1,22 @@
+html
+    head
+        style
+            include ../style.css
+        title= title
+    body
+        h1 users
+        a.button(href='/form') Add New User
+        div.container
+            div.userInfo
+                div= message.username
+                div= message.name
+                div= message.email
+                div= message.age
+                a.editBtn(href='edit') edit
+
+
+
+
+        //ul
+        //    each name in list
+        //        li
