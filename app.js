@@ -20,22 +20,27 @@ app.get('/form', (req, res) => {
     res.render('form');
 });
 app.get('/edit', (req, res) => {
-    res.render('edit', {message: users});
+    res.render('edit');
 });
 app.post('/create', (req, res) => {
-
     console.log(req.body);
-    // fs.writeFile('users.txt');
-    res.end(`${req.body.username} ${req.body.name} ${req.body.email} ${req.body.age}`);
+    saveUser(req.body);
+    // res.end(`${req.body.username} ${req.body.name} ${req.body.email} ${req.body.age}`);
+    res.redirect('/');
+});
+app.post('/update', (req, res) => {
+    saveUser(res);
+    // res.end(`${req.body.username} ${req.body.name} ${req.body.email} ${req.body.age}`);
 });
 
-saveUser = () => {
-
+saveUser = (newUser) => {
+    const userInfo = JSON.stringify(newUser);
+    fs.writeFileSync('users.json', userInfo, (err) => {
+        if (err) throw err;
+    } );
 };
 
 app.listen(3000, () => {
     console.log('listening on port 3000');
 });
 
-
-//comment
