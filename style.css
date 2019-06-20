@@ -1,15 +1,13 @@
 .container {
     border: solid 1px #AFA0A0;
     border-radius: 5px;
-    display: flex;
+    /*display: flex;*/
     /*justify-content: center;*/
-    flex-direction: row;
+    /*flex-direction: row;*/
     margin: 20px;
     padding: 10px;
 }
-.userInfo {
-    align-content: space-between;
-}
+
 .button {
     border: solid 1px #AFA0A0;
     border-radius: 5px;

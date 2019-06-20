@@ -7,12 +7,15 @@ html
         h1 users
         a.button(href='/form') Add New User
         div.container
-            div.userInfo
-                div= message.username
-                div= message.name
-                div= message.email
-                div= message.age
-                a.editBtn(href='edit') edit
+
+            table
+                    each user in message
+                        tr
+                            td= user.username
+                            td= user.name
+                            td= user.email
+                            td= user.age
+                    a.editBtn(href='edit') edit
 
 
 
