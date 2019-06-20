@@ -7,16 +7,22 @@ html
         h1 users
         a.button(href='/form') Add New User
         div.container
-
             table
+                tr
+                    th username
+                    th name
+                    th email
+                    th age
                     each user in message
                         tr
                             td= user.username
                             td= user.name
                             td= user.email
                             td= user.age
-                    a.editBtn(href='edit') edit
-
+                            td
+                                a.editBtn(href='edit') edit
+                            td
+                                a(href=`/delete/${user.id}`) delete
 
 
 

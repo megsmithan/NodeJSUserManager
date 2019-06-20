@@ -22,6 +22,18 @@ app.get('/form', (req, res) => {
 app.get('/edit', (req, res) => {
     res.render('edit');
 });
+app.get('/delete/:id', (req, res) => {
+    // console.log(req.params.id);
+    toDelete(req.params.id);
+
+});
+toDelete = (id) => {
+    // let newArray = users.usersArray.filter(x => {
+    //     if (x.id != id){
+    //         console.log(newArray);
+    //     }
+    // })
+};
 
 app.post('/create', (req, res) => {
     let user = {};
@@ -29,8 +41,8 @@ app.post('/create', (req, res) => {
     user.name = req.body.name;
     user.email = req.body.email;
     user.age = req.body.age;
+    user.id = users.usersArray.length + 1 ;
     console.log(user);
-    // saveUser(req.body);
     // res.end(`${req.body.username} ${req.body.name} ${req.body.email} ${req.body.age}`);
     fs.readFile('users.json', (err, data) => {
         let json = JSON.parse(data);
@@ -45,7 +57,6 @@ app.post('/create', (req, res) => {
 
 });
 app.post('/update', (req, res) => {
-    // saveUser(res);
     // res.end(`${req.body.username} ${req.body.name} ${req.body.email} ${req.body.age}`);
 });
 
