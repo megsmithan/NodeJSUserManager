@@ -14,7 +14,7 @@ app.set('view engine', 'pug');
 app.use(express.urlencoded({extended: false}));
 
 app.get('/', (req, res) => {
-    res.render('index', {users});
+    res.render('index', {message: users.users});
 });
 app.get('/form', (req, res) => {
     res.render('form');
@@ -22,6 +22,7 @@ app.get('/form', (req, res) => {
 app.get('/edit', (req, res) => {
     res.render('edit');
 });
+
 app.post('/create', (req, res) => {
     console.log(req.body);
     saveUser(req.body);
@@ -41,7 +42,7 @@ saveUser = (newUser) => {
     fs.readFile('users.json', (err, data) => {
         let json = JSON.parse(data);
         json.users.push(newUser);
-        console.log(json);
+        // console.log(json);
         fs.writeFile('users.json', JSON.stringify(json), err => {
             if (err) throw err;
         })
